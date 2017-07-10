@@ -4,6 +4,7 @@ import java8.data.Person;
 import org.junit.Test;
 
 import java.util.function.BinaryOperator;
+import java.util.function.Function;
 
 /**
  * Exercice 03 - java.util.function.BinaryOperator
@@ -16,7 +17,7 @@ public class Function_03_Test {
     // TODO l'enfant possède le prenom "<PRENOM_PERE> <PRENOM_MERE>"
     // TODO l'age de l'enfant est 0
     // TODO le mot de passe de l'enfant est null
-    BinaryOperator<Person> makeAChild = null;
+    BinaryOperator<Person> makeAChild = (p1, p2) -> new Person(p1.getFirstname()+" "+p2.getFirstname(), p1.getLastname(), 0, null);
     //  end::makeAChild[]
 
 
@@ -27,7 +28,7 @@ public class Function_03_Test {
         Person mother = new Person("Aline", "Lebreton", 22, "alino");
 
         // TODO compléter le test pour qu'il soit passant
-        Person child = null;
+        Person child = makeAChild.apply(father, mother);
 
         assert child.getFirstname().equals("John Aline");
         assert child.getLastname().equals("France");
