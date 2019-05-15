@@ -1,4 +1,4 @@
-# Workshop Java 8
+# Java 8 Features
 
 Thèmes abordées :
 
